@@ -4,6 +4,6 @@ import LandingPage from "./page/LandingPage";
 
 export const routes = [
     { path: "/", Component: LandingPage, name: "home" },
+    { path: "/details/:id", Component: Details, name: "home" },
     { path: "*", Component: IncorrectPage, name: "404" },
-    { path: "/details/:id ", Component: Details, name: "details" },
 ];
