@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { StoreContext } from "../store/index";
 import styled from "styled-components";
 
@@ -12,10 +12,8 @@ const Container = styled.section`
 `;
 
 function Details({ match }) {
-    const [detailData, setDetailData] = useState({
-        DetailsData: [],
-    });
     const {
+        DETAILS: [detailData, setDetailData],
         DATA: [table, setTable],
     } = useContext(StoreContext);
     const { DetailsData } = detailData;
@@ -24,8 +22,6 @@ function Details({ match }) {
         let projectId = table.data.filter((el) => el.id === match.params.id);
         setDetailData({ DetailsData: projectId });
     }, [match.params.id, table.data]);
-
-    console.log(match);
 
     return (
         <Container>

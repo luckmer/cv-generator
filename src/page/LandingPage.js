@@ -2,16 +2,26 @@ import React, { useState, useContext } from "react";
 import { Container, CreateContext } from "../css/LandingPageStyle";
 import CreateCV from "../components/CreateCv";
 import { StoreContext } from "../store/index";
+import Table from "../components/Table";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-const Main = styled.div``;
+
+const TableContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 10px 10vw 10px 10vw;
+`;
 
 function LandingPage() {
     const [open, setOpen] = useState(false);
     const {
+        clearTableData,
         DATA: [table, setTable],
     } = useContext(StoreContext);
     const { data } = table;
+    console.log(data);
     return (
         <Container>
             <CreateCV open={open} />
@@ -35,13 +45,16 @@ function LandingPage() {
                     <button onClick={() => setOpen(!open)}>Create</button>
                 </div>
             </CreateContext>
-            <Main>
+            <TableContainer>
                 {data.map(({ title, id }) => (
-                    <div key={id}>
-                        <Link to={`/details/${id}`}>{title}</Link>
-                    </div>
+                    <Table
+                        key={id}
+                        title={title}
+                        id={id}
+                        clearTableData={clearTableData}
+                    />
                 ))}
-            </Main>
+            </TableContainer>
         </Container>
     );
 }
