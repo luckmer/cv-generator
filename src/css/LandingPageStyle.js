@@ -23,8 +23,8 @@ export const CreateContext = styled.div`
     }
     input,
     select {
-        background-color: #3f66f6;
-        color: #ffffff;
+        background-color: #d8d8d8;
+        color: #212529;
         border: none;
         border-radius: 20px;
         padding: 10px 20px 10px 20px;
