@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
     *{
@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
         box-sizing:border-box;
     }
     html,body{
-        background-color:#F5F5F5;
+        background-color:#fafafa;
         width:100vw;
         height:100vh;
     }
