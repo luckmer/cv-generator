@@ -10,6 +10,10 @@ export default ({ children }) => {
         DetailsData: [],
     });
 
+    const [updated, setUpdated] = useState({
+        UpdatedData: [],
+    });
+
     const clearTableData = () => {
         const clearState = table.data;
         clearState.splice(clearState, 1);
@@ -28,6 +32,7 @@ export default ({ children }) => {
         clearTableData,
         DETAILS: [detailData, setDetailData],
         DATA: [table, setTable],
+        UPDATED: [updated, setUpdated],
     };
 
     return (
