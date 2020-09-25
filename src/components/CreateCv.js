@@ -8,10 +8,18 @@ const Container = styled.div`
     position: absolute;
     left: 50%;
     top: 50%;
+    width: 100%;
+    height: 100%;
     transform: translate(-50%, -50%);
 `;
 
 const Form = styled.form`
+    z-index: 200;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     input {
         margin: 0 20px 0 20px;
         background-color: #212529;
@@ -30,10 +38,20 @@ const Form = styled.form`
         padding: 10px 20px 10px 20px;
         border: none;
         border-radius: 5px;
+        margin: 0 20px 0 20px;
     }
 `;
 
-function CreateCv({ open }) {
+const Black = styled.div`
+    z-index: -1;
+    opacity: 0.5;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: grey;
+`;
+
+function CreateCv({ open, setOpen }) {
     const [create, setCreate] = useState("");
     const {
         DATA: [table, setTable],
@@ -55,6 +73,7 @@ function CreateCv({ open }) {
 
     const newCv = (
         <Container>
+            <Black />
             <Form onSubmit={handleSubmit}>
                 <input
                     placeholder="create new cv "
@@ -62,7 +81,10 @@ function CreateCv({ open }) {
                     value={create}
                     onChange={(e) => setCreate(e.target.value)}
                 />
-                <button type="submit">Submit</button>
+                <div>
+                    <button type="submit">Submit</button>
+                    <button onClick={() => setOpen(!open)}>Close</button>
+                </div>
             </Form>
         </Container>
     );

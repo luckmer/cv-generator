@@ -1,10 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { TableDesign } from "../css/Table";
-
+import Context from "../components/Update/Context";
 function Table({ title, id, clearTableData }) {
-    console.log(id);
     return (
         <TableDesign key={id}>
             <thead>
@@ -17,7 +15,10 @@ function Table({ title, id, clearTableData }) {
                         </Link>
                     </th>
                     <th>
-                        Options : <button>Edit</button>
+                        Options :
+                        <Link to={`/edit`}>
+                            <button>Edit</button>
+                        </Link>
                         <button onClick={clearTableData}>Delete</button>
                     </th>
                 </tr>
