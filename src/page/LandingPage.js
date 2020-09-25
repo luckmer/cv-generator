@@ -4,7 +4,7 @@ import CreateCV from "../components/CreateCv";
 import { StoreContext } from "../store/index";
 import Table from "../components/Table";
 import styled from "styled-components";
-
+import Filter from "../components/Filter/Filter";
 const TableContainer = styled.div`
     display: flex;
     justify-content: center;
@@ -16,34 +16,18 @@ const TableContainer = styled.div`
 
 function LandingPage() {
     const [open, setOpen] = useState(false);
+
     const {
         clearTableData,
-        DATA: [table, setTable],
+        DATA: [table],
     } = useContext(StoreContext);
     const { data } = table;
-    console.log(data);
+
     return (
         <Container>
-            <CreateCV open={open} />
+            <CreateCV open={open} setOpen={setOpen} />
             <CreateContext>
-                <div>
-                    <input />
-                    <select>
-                        <option>option</option>
-                        <option>option</option>
-                        <option>option</option>
-                        <option>option</option>
-                    </select>
-                    <select>
-                        <option> option</option>
-                        <option> option</option>
-                        <option> option</option>
-                        <option> option</option>
-                    </select>
-                </div>
-                <div>
-                    <button onClick={() => setOpen(!open)}>Create</button>
-                </div>
+                <Filter setOpen={setOpen} open={open} />
             </CreateContext>
             <TableContainer>
                 {data.map(({ title, id }) => (
