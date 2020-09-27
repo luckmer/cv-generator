@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { TableDesign } from "../css/Table";
-import Context from "../components/Update/Context";
+
 function Table({ title, id, clearTableData }) {
     return (
         <TableDesign key={id}>
@@ -16,7 +16,7 @@ function Table({ title, id, clearTableData }) {
                     </th>
                     <th>
                         Options :
-                        <Link to={`/edit`}>
+                        <Link to={`/edit/${id}`}>
                             <button>Edit</button>
                         </Link>
                         <button onClick={clearTableData}>Delete</button>
