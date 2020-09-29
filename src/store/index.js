@@ -6,6 +6,12 @@ export default ({ children }) => {
     const [table, setTable] = useState({
         data: [],
     });
+    const [editData, setEditData] = useState({
+        basicData: [],
+        experienceData: [],
+        skillsData: [],
+    });
+
     const [detailData, setDetailData] = useState({
         DetailsData: [],
     });
@@ -33,6 +39,7 @@ export default ({ children }) => {
         DETAILS: [detailData, setDetailData],
         DATA: [table, setTable],
         UPDATED: [updated, setUpdated],
+        DATAUPDATE: [editData, setEditData],
     };
 
     return (
