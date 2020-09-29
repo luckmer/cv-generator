@@ -16,7 +16,7 @@ function Table({ title, id, clearTableData }) {
                     </th>
                     <th>
                         Options :
-                        <Link to={`/edit/${id}`}>
+                        <Link to={`/edit`}>
                             <button>Edit</button>
                         </Link>
                         <button onClick={clearTableData}>Delete</button>

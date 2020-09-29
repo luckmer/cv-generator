@@ -1,7 +1,7 @@
-import Details from "./page/Details";
-import IncorrectPage from "./page/404";
-import LandingPage from "./page/LandingPage";
-import Context from "./page/Context";
+import Details from "./page/Details.jsx";
+import IncorrectPage from "./page/404.jsx";
+import LandingPage from "./page/LandingPage.jsx";
+import Context from "./page/Context.jsx";
 
 export const routes = [
     { path: "/", Component: LandingPage, name: "home" },
