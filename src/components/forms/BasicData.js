@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { StoreContext } from "../../store/index";
 import { nanoid } from "nanoid";
+
 const initialState = {
     id: nanoid(),
     name: "",
@@ -16,7 +17,7 @@ function BasicData() {
     const {
         DATAUPDATE: [editData, setEditData],
     } = useContext(StoreContext);
-    const { basicData } = editData;
+    const { basicData, experienceData, skillsData } = editData;
 
     const handleChange = (e) => {
         setState({ ...state, [e.target.name]: e.target.value });
@@ -24,7 +25,7 @@ function BasicData() {
     const handleSubmit = (e) => {
         e.preventDefault();
         const test = basicData.concat(state);
-        setEditData({ basicData: test });
+        setEditData({ basicData: test, experienceData, skillsData });
     };
     return (
         <form onSubmit={handleSubmit}>
