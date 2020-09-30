@@ -11,7 +11,7 @@ export default ({ children }) => {
         experienceData: [],
         skillsData: [],
     });
-    console.log(editData.basicData);
+
     const [detailData, setDetailData] = useState({
         DetailsData: [],
     });
@@ -25,6 +25,7 @@ export default ({ children }) => {
         clearState.splice(clearState, 1);
         setTable({ data: clearState });
     };
+
     useEffect(() => {
         const store = JSON.parse(localStorage.getItem("TableData"));
         if (store) setTable(store);
