@@ -5,7 +5,6 @@ import { StoreContext } from "../store/index";
 import Table from "../components/Table";
 import styled from "styled-components";
 import Filter from "../components/Filter/Filter";
-import BasicData from "../components/forms/BasicData";
 const TableContainer = styled.div`
     display: flex;
     justify-content: center;
@@ -39,7 +38,6 @@ function LandingPage() {
                         clearTableData={clearTableData}
                     />
                 ))}
-                <BasicData />
             </TableContainer>
         </Container>
     );
