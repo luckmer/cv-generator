@@ -11,7 +11,7 @@ export default ({ children }) => {
         experienceData: [],
         skillsData: [],
     });
-
+    console.log(editData);
     const [detailData, setDetailData] = useState({
         DetailsData: [],
     });

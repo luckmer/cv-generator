@@ -17,6 +17,7 @@ function BasicData() {
     const {
         DATAUPDATE: [editData, setEditData],
     } = useContext(StoreContext);
+
     const { basicData, experienceData, skillsData } = editData;
 
     const handleChange = (e) => {
