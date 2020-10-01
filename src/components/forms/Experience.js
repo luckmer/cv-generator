@@ -1,5 +1,6 @@
+import React, { useState, useContext } from "react";
 import { nanoid } from "nanoid";
-import React, { useState } from "react";
+import { StoreContext } from "../../store/index";
 
 const initialState = {
     wE: [],
@@ -11,24 +12,25 @@ const initialState = {
 
 function Experience() {
     const [state, setState] = useState(initialState);
-    const [text, setText] = useState({
-        id: nanoid(),
-        WT: "",
-        ED: "",
-        LT: "",
-        CT: "",
-    });
+    const [text, setText] = useState({ WT: "", ED: "", LT: "", CT: "" });
+
+    const {
+        DATAUPDATE: [editData, setEditData],
+    } = useContext(StoreContext);
+
     const handleChange = (e) => {
         setText({ ...text, [e.target.name]: e.target.value });
     };
-    console.log(state);
+    const { basicData, skillsData } = editData;
     const { LT, WT, ED, CT } = text;
     const { wE, en, lk, ce, pp } = state;
+    const Data = basicData.concat(state);
 
     const handleWorkSubmit = (e) => {
         e.preventDefault();
         const newCv = { id: nanoid(), data: WT };
         const test = wE.concat(newCv);
+        setEditData({ experienceData: Data, basicData, skillsData });
         setState({ wE: test, en, lk, ce, pp });
     };
 
@@ -36,6 +38,7 @@ function Experience() {
         e.preventDefault();
         const newCv = { id: nanoid(), data: ED };
         const test = en.concat(newCv);
+        setEditData({ experienceData: Data, basicData, skillsData });
         setState({ wE, en: test, lk, ce, pp });
     };
 
@@ -43,14 +46,15 @@ function Experience() {
         e.preventDefault();
         const newCv = { id: nanoid(), data: LT };
         const test = lk.concat(newCv);
+        setEditData({ experienceData: Data, basicData, skillsData });
         setState({ wE, en, lk: test, ce, pp });
     };
 
     const handleCertificateSubmit = (e) => {
         e.preventDefault();
-        const { CT } = text;
         const newCv = { id: nanoid(), data: CT };
         const test = ce.concat(newCv);
+        setEditData({ experienceData: Data, basicData, skillsData });
         setState({ wE, en, lk, ce: test, pp });
     };
     return (
@@ -60,7 +64,6 @@ function Experience() {
                     placeholder=" work experience"
                     name="wE"
                     value={text.WT}
-                    name="WT"
                     onChange={handleChange}
                 />
                 <button type="submit">Submit</button>
@@ -92,6 +95,9 @@ function Experience() {
                 />
                 <button type="submit">Submit</button>
             </form>
+            <div>
+                <input name="pp" onChange={handleChange} placeholder=" data" />
+            </div>
         </div>
     );
 }
