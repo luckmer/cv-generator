@@ -6,12 +6,12 @@ export default ({ children }) => {
     const [table, setTable] = useState({
         data: [],
     });
+
     const [editData, setEditData] = useState({
         basicData: [],
         experienceData: [],
         skillsData: [],
     });
-    console.log(editData);
     const [detailData, setDetailData] = useState({
         DetailsData: [],
     });
