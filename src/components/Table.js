@@ -1,29 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { TableDesign } from "../css/Table";
+import BasicData from "../components/forms/BasicData";
+import Experience from "../components/forms/Experience";
+import Skills from "../components/forms/Skills";
+import styled from "styled-components";
+const Container = styled.div`
+    margin: 15vh 0 0 0;
+`;
 
-function Table({ title, id, clearTableData }) {
+function Table(props) {
     return (
-        <TableDesign key={id}>
-            <thead>
-                <tr>
-                    <th>title : {title}</th>
-                    <th>
-                        details:
-                        <Link to={`/details/${id}`}>
-                            <button>Details</button>
-                        </Link>
-                    </th>
-                    <th>
-                        Options :
-                        <Link to={`/edit`}>
-                            <button>Edit</button>
-                        </Link>
-                        <button onClick={clearTableData}>Delete</button>
-                    </th>
-                </tr>
-            </thead>
-        </TableDesign>
+        <Container>
+            <input id={props.id} />
+        </Container>
     );
 }
 
