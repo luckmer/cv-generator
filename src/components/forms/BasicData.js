@@ -20,42 +20,42 @@ function BasicData() {
 
     const { basicData, experienceData, skillsData } = editData;
 
-    const handleChange = (e) => {
+    const handleDataChange = (e) => {
         setState({ ...state, [e.target.name]: e.target.value });
     };
-    const handleSubmit = (e) => {
+    const handleDataSubmit = (e) => {
         e.preventDefault();
         const test = basicData.concat(state);
         setEditData({ basicData: test, experienceData, skillsData });
     };
     return (
-        <form onSubmit={handleSubmit}>
-            <input name="name" value={state.name} onChange={handleChange} />
+        <form onSubmit={handleDataSubmit}>
+            <input name="name" value={state.name} onChange={handleDataChange} />
             <input
                 name="surname"
                 value={state.surname}
-                onChange={handleChange}
+                onChange={handleDataChange}
             />
             <input
                 type="text"
                 name="dataOfBirth"
                 value={state.dataOfBirth}
-                onChange={handleChange}
+                onChange={handleDataChange}
             />
             <input
                 name="country"
                 value={state.country}
-                onChange={handleChange}
+                onChange={handleDataChange}
             />
             <input
                 name="livingPlace"
                 value={state.livingPlace}
-                onChange={handleChange}
+                onChange={handleDataChange}
             />
             <input
                 name="phoneNumber"
                 value={state.phoneNumber}
-                onChange={handleChange}
+                onChange={handleDataChange}
             />
             <button type="submit">Submit</button>
         </form>
