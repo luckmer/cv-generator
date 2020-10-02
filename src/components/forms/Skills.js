@@ -19,7 +19,7 @@ function Skills() {
     const { basicData, experienceData } = editData;
     const { abilities, Activity, links, personalData } = state;
     const Data = basicData.concat(state);
-    const { as, ay, ls, pd } = text;
+    const { as, ay, ls } = text;
 
     const handleChange = (e) => {
         setText({ ...text, [e.target.name]: e.target.value });
