@@ -1,17 +1,62 @@
-import React from "react";
-import BasicData from "../components/forms/BasicData";
-import Experience from "../components/forms/Experience";
-import Skills from "../components/forms/Skills";
+import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
+import { TableDesign } from "../css/Table";
+import Index from "../components/forms/index";
 import styled from "styled-components";
-const Container = styled.div`
-    margin: 15vh 0 0 0;
+import { StoreContext } from "../store/index";
+
+const Div = styled.div`
+    opacity: ${({ open }) => (open ? 0 : 1)};
 `;
 
 function Table(props) {
+    const [open, setOpen] = useState(false);
+    const {
+        DATAUPDATE: [editData],
+    } = useContext(StoreContext);
+
+    const { basicData, experienceData, skillsData } = editData;
+    const handleSubmit = () => {
+        props.editTask(props.id, basicData, experienceData, skillsData);
+    };
+
+    const View = (
+        <TableDesign key={props.id}>
+            <thead>
+                <tr>
+                    <th>title : {props.title}</th>
+                    <th>
+                        details:
+                        <Link to={`/details/${props.id}`}>
+                            <button>Details</button>
+                        </Link>
+                    </th>
+                    <th>
+                        Options :
+                        <button onClick={() => props.setControlOpen(true)}>
+                            <p onClick={() => setOpen(true)}>Edit</p>
+                        </button>
+                        <button onClick={props.clearTableData}>Delete</button>
+                    </th>
+                </tr>
+            </thead>
+        </TableDesign>
+    );
+
+    const CvGenerate = (
+        <div>
+            <Index />
+            <div>
+                <button onClick={handleSubmit}>Submit</button>
+            </div>
+        </div>
+    );
+
     return (
-        <Container>
-            <input id={props.id} />
-        </Container>
+        <section>
+            <Div>{props.controlOpen ? " " : View}</Div>
+            <Div>{open ? CvGenerate : ""}</Div>
+        </section>
     );
 }
 
