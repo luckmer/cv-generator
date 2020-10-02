@@ -6,9 +6,12 @@ export const TableDesign = styled.table`
     text-algin: center;
     width: 100%;
     border-bottom: 1px solid #d8d8d8;
-
+    p {
+        width: 100%;
+    }
     th,
     td {
+        opacity: ${({ open }) => (open ? 0 : 1)};
         width: 100vw;
         padding: 20px;
         background-color: #ffffff;
