@@ -2,8 +2,7 @@ import React, { useState, useContext } from "react";
 import { Container, CreateContext } from "../css/LandingPageStyle";
 import CreateCV from "../components/CreateCv";
 import { StoreContext } from "../store/index";
-import { Link } from "react-router-dom";
-import { TableDesign } from "../css/Table";
+import Table from "../components/Table";
 import styled from "styled-components";
 import Filter from "../components/Filter/Filter";
 const TableContainer = styled.div`
@@ -13,47 +12,51 @@ const TableContainer = styled.div`
     width: 100%;
     height: 100%;
     padding: 10px 10vw 10px 10vw;
+    opacity: ${({ controlOpen }) => (controlOpen ? 0 : 1)};
 `;
 
 function LandingPage() {
     const [open, setOpen] = useState(false);
-
+    const [controlOpen, setControlOpen] = useState(false);
     const {
         clearTableData,
-        DATA: [table],
+        DATA: [table, setTable],
     } = useContext(StoreContext);
     const { data } = table;
 
+    const editTask = (id, basicData, experienceData, skillsData) => {
+        const edited = data.map((task) => {
+            if (id === task.id) {
+                return {
+                    ...task,
+                    title: task.title,
+                    BasicData: basicData,
+                    experienceData: experienceData,
+                    SkillData: skillsData,
+                };
+            }
+            return task;
+        });
+        setTable({ data: edited });
+    };
+
     return (
-        <Container>
+        <Container controlOpen={controlOpen}>
             <CreateCV open={open} setOpen={setOpen} />
             <CreateContext>
                 <Filter setOpen={setOpen} open={open} />
             </CreateContext>
             <TableContainer>
                 {data.map(({ title, id }) => (
-                    <TableDesign key={id}>
-                        <thead>
-                            <tr>
-                                <th>title : {title}</th>
-                                <th>
-                                    details:
-                                    <Link to={`/details/${id}`}>
-                                        <button>Details</button>
-                                    </Link>
-                                </th>
-                                <th>
-                                    Options :
-                                    <Link to={`/edit`}>
-                                        <button>Edit</button>
-                                    </Link>
-                                    <button onClick={clearTableData}>
-                                        Delete
-                                    </button>
-                                </th>
-                            </tr>
-                        </thead>
-                    </TableDesign>
+                    <Table
+                        key={id}
+                        title={title}
+                        id={id}
+                        setControlOpen={setControlOpen}
+                        controlOpen={controlOpen}
+                        clearTableData={clearTableData}
+                        editTask={editTask}
+                    />
                 ))}
             </TableContainer>
         </Container>
