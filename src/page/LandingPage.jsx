@@ -2,7 +2,8 @@ import React, { useState, useContext } from "react";
 import { Container, CreateContext } from "../css/LandingPageStyle";
 import CreateCV from "../components/CreateCv";
 import { StoreContext } from "../store/index";
-import Table from "../components/Table";
+import { Link } from "react-router-dom";
+import { TableDesign } from "../css/Table";
 import styled from "styled-components";
 import Filter from "../components/Filter/Filter";
 const TableContainer = styled.div`
@@ -31,12 +32,28 @@ function LandingPage() {
             </CreateContext>
             <TableContainer>
                 {data.map(({ title, id }) => (
-                    <Table
-                        key={id}
-                        title={title}
-                        id={id}
-                        clearTableData={clearTableData}
-                    />
+                    <TableDesign key={id}>
+                        <thead>
+                            <tr>
+                                <th>title : {title}</th>
+                                <th>
+                                    details:
+                                    <Link to={`/details/${id}`}>
+                                        <button>Details</button>
+                                    </Link>
+                                </th>
+                                <th>
+                                    Options :
+                                    <Link to={`/edit`}>
+                                        <button>Edit</button>
+                                    </Link>
+                                    <button onClick={clearTableData}>
+                                        Delete
+                                    </button>
+                                </th>
+                            </tr>
+                        </thead>
+                    </TableDesign>
                 ))}
             </TableContainer>
         </Container>
