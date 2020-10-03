@@ -1,23 +1,23 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { TableDesign } from "../css/Table";
 import Index from "../components/forms/index";
 import styled from "styled-components";
 import { StoreContext } from "../store/index";
-
 const Div = styled.div`
     opacity: ${({ open }) => (open ? 0 : 1)};
 `;
 
 function Table(props) {
+    const history = useHistory();
     const [open, setOpen] = useState(false);
     const {
-        DATAUPDATE: [editData],
+        PROPSDATA: [, setProp],
     } = useContext(StoreContext);
 
-    const { basicData, experienceData, skillsData } = editData;
-    const handleSubmit = () => {
-        props.editTask(props.id, basicData, experienceData, skillsData);
+    const handleClick = () => {
+        setProp({ PropsData: props.id });
+        history.push("/edit");
     };
 
     const View = (
@@ -33,8 +33,8 @@ function Table(props) {
                     </th>
                     <th>
                         Options :
-                        <button onClick={() => props.setControlOpen(true)}>
-                            <p onClick={() => setOpen(true)}>Edit</p>
+                        <button onClick={handleClick}>
+                            <p>Edit</p>
                         </button>
                         <button onClick={props.clearTableData}>Delete</button>
                     </th>
@@ -46,8 +46,10 @@ function Table(props) {
     const CvGenerate = (
         <div>
             <Index />
-            <div>
-                <button onClick={handleSubmit}>Submit</button>
+            <div onClick={() => props.setControlOpen(false)}>
+                <button>
+                    <p onClick={() => setOpen(false)}>Edit</p>
+                </button>
             </div>
         </div>
     );
