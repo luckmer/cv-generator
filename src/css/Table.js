@@ -11,7 +11,6 @@ export const TableDesign = styled.table`
     }
     th,
     td {
-        opacity: ${({ open }) => (open ? 0 : 1)};
         width: 100vw;
         padding: 20px;
         background-color: #ffffff;

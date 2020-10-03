@@ -17,6 +17,7 @@ function Context() {
     const { basicData, experienceData, skillsData } = editData;
     const { PropsData } = prop;
     const id = PropsData;
+
     const handleSubmit = () => {
         editTask(id, basicData, experienceData, skillsData);
     };
