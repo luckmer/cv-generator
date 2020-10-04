@@ -1,56 +1,75 @@
 import React from "react";
 import ExperienceUpdate from "../Update/ExperienceUpdate";
+import { useForm } from "react-hook-form";
 
-function Experience() {
+function Experience({ onClick }) {
+    const { register, handleSubmit, errors } = useForm();
+
     const {
         handleWorkSubmit,
         handleEduSubmit,
         handleLangSubmit,
         handleCertificateSubmit,
         handleChange,
-        text,
     } = ExperienceUpdate();
 
     return (
         <div>
-            <form onSubmit={handleWorkSubmit}>
+            <form onSubmit={handleSubmit(handleWorkSubmit)}>
                 <input
-                    placeholder=" work experience"
+                    ref={register({ pattern: /\w/i, required: true })}
+                    placeholder="work experience "
                     name="wE"
-                    value={text.WT}
                     onChange={handleChange}
                 />
+                {errors.wE && <span>This field is required</span>}
                 <button type="submit">Submit</button>
             </form>
-            <form onSubmit={handleEduSubmit}>
+
+            <form onSubmit={handleSubmit(handleEduSubmit)}>
                 <input
-                    placeholder="en"
-                    value={text.ED}
+                    ref={register({ pattern: /\w/i, required: true })}
+                    placeholder="Education "
                     name="ED"
                     onChange={handleChange}
                 />
+                {errors.ED && <span>This field is required</span>}
                 <button type="submit">Submit</button>
             </form>
-            <form onSubmit={handleLangSubmit}>
+
+            <form onSubmit={handleSubmit(handleLangSubmit)}>
                 <input
-                    placeholder="lk"
-                    value={text.LT}
+                    ref={register({ pattern: /\w/i, required: true })}
+                    placeholder="language knowledge "
                     name="LT"
                     onChange={handleChange}
                 />
+                {errors.LT && <span>This field is required</span>}
                 <button type="submit">Submit</button>
             </form>
-            <form onSubmit={handleCertificateSubmit}>
+
+            <form onSubmit={handleSubmit(handleCertificateSubmit)}>
                 <input
-                    placeholder="ce"
-                    value={text.CT}
+                    ref={register({ pattern: /\w/i, required: true })}
+                    placeholder="certificates"
                     name="CT"
                     onChange={handleChange}
                 />
+                {errors.CT && <span>This field is required</span>}
                 <button type="submit">Submit</button>
             </form>
+
             <div>
-                <input name="pp" onChange={handleChange} placeholder=" data" />
+                <input
+                    name="pp"
+                    onChange={handleChange}
+                    placeholder=" data"
+                    ref={register({
+                        pattern: /(0[1-9]|1[0-9]|2[0-9]|3[0-1])/i,
+                        required: true,
+                    })}
+                />
+                {errors.pp && <span>This field is required</span>}
             </div>
         </div>
     );
