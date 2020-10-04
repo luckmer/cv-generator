@@ -15,18 +15,23 @@ const initialState = {
 export default function BasicDataUpdate() {
     const [state, setState] = useState(initialState);
     const {
+        editTask,
         DATAUPDATE: [editData, setEditData],
+        PROPSDATA: [prop],
     } = useContext(StoreContext);
-
+    const { PropsData } = prop;
+    const id = PropsData;
     const { basicData, experienceData, skillsData } = editData;
 
     const handleDataChange = (e) => {
         setState({ ...state, [e.target.name]: e.target.value });
     };
-    const handleDataSubmit = (e) => {
-        e.preventDefault();
+
+    const handleDataSubmit = () => {
         const test = basicData.concat(state);
+        editTask(id, basicData, experienceData, skillsData);
         setEditData({ basicData: test, experienceData, skillsData });
     };
-    return { handleDataSubmit, handleDataChange, state };
+
+    return { handleDataSubmit, handleDataChange, state, editData };
 }

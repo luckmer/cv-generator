@@ -13,7 +13,13 @@ const initialState = {
 
 export default function ExperienceUpdate() {
     const [state, setState] = useState(initialState);
-    const [text, setText] = useState({ WT: "", ED: "", LT: "", CT: "" });
+    const [text, setText] = useState({
+        WT: "",
+        ED: "",
+        LT: "",
+        CT: "",
+        wE: "",
+    });
 
     const {
         DATAUPDATE: [editData, setEditData],
@@ -28,7 +34,6 @@ export default function ExperienceUpdate() {
     const Data = basicData.concat(state);
 
     const handleWorkSubmit = (e) => {
-        e.preventDefault();
         const newCv = { id: nanoid(), data: WT };
         const test = wE.concat(newCv);
         setEditData({ experienceData: Data, basicData, skillsData });
@@ -36,7 +41,6 @@ export default function ExperienceUpdate() {
     };
 
     const handleEduSubmit = (e) => {
-        e.preventDefault();
         const newCv = { id: nanoid(), data: ED };
         const test = en.concat(newCv);
         setEditData({ experienceData: Data, basicData, skillsData });
@@ -44,7 +48,6 @@ export default function ExperienceUpdate() {
     };
 
     const handleLangSubmit = (e) => {
-        e.preventDefault();
         const newCv = { id: nanoid(), data: LT };
         const test = lk.concat(newCv);
         setEditData({ experienceData: Data, basicData, skillsData });
@@ -52,7 +55,6 @@ export default function ExperienceUpdate() {
     };
 
     const handleCertificateSubmit = (e) => {
-        e.preventDefault();
         const newCv = { id: nanoid(), data: CT };
         const test = ce.concat(newCv);
         setEditData({ experienceData: Data, basicData, skillsData });
