@@ -12,22 +12,23 @@ export default ({ children }) => {
         experienceData: [],
         skillsData: [],
     });
-
+    console.log(data);
     const [detailData, setDetailData] = useState({
         DetailsData: [],
     });
-
     const [updated, setUpdated] = useState({
         UpdatedData: [],
     });
     const [prop, setProp] = useState({
         PropsData: [],
     });
+
     const clearTableData = () => {
         const clearState = table.data;
         clearState.splice(clearState, 1);
         setTable({ data: clearState });
     };
+
     const editTask = (id, basicData, experienceData, skillsData) => {
         const edited = data.map((task) => {
             if (id === task.id) {
@@ -41,6 +42,7 @@ export default ({ children }) => {
             }
             return task;
         });
+
         setTable({ data: edited });
     };
 

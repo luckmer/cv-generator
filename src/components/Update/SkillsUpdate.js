@@ -25,7 +25,6 @@ export default function SkillsUpdate() {
     };
 
     const abilitiesSubmit = (e) => {
-        e.preventDefault();
         const newData = { id: nanoid(), data: as };
         const test = abilities.concat(newData);
         setEditData({ experienceData, basicData, skillsData: Data });
@@ -33,7 +32,6 @@ export default function SkillsUpdate() {
     };
 
     const activitySubmit = (e) => {
-        e.preventDefault();
         const newData = { id: nanoid(), data: ay };
         const test = abilities.concat(newData);
         setEditData({ experienceData, basicData, skillsData: Data });
@@ -41,7 +39,6 @@ export default function SkillsUpdate() {
     };
 
     const linksSubmit = (e) => {
-        e.preventDefault();
         const newData = { id: nanoid(), data: ls };
         const test = abilities.concat(newData);
         setEditData({ experienceData, basicData, skillsData: Data });
