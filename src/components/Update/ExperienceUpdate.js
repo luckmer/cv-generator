@@ -34,31 +34,43 @@ export default function ExperienceUpdate() {
     const Data = basicData.concat(state);
 
     const handleWorkSubmit = (e) => {
-        const newCv = { id: nanoid(), data: WT };
-        const test = wE.concat(newCv);
-        setEditData({ experienceData: Data, basicData, skillsData });
-        setState({ wE: test, en, lk, ce, pp });
+        if (text.wE) {
+            const newCv = { id: nanoid(), data: WT };
+            const test = wE.concat(newCv);
+            setEditData({ experienceData: Data, basicData, skillsData });
+            setState({ wE: test, en, lk, ce, pp });
+            setText({ wE: "" });
+        }
     };
 
     const handleEduSubmit = (e) => {
-        const newCv = { id: nanoid(), data: ED };
-        const test = en.concat(newCv);
-        setEditData({ experienceData: Data, basicData, skillsData });
-        setState({ wE, en: test, lk, ce, pp });
+        if (text.ED) {
+            const newCv = { id: nanoid(), data: ED };
+            const test = en.concat(newCv);
+            setEditData({ experienceData: Data, basicData, skillsData });
+            setState({ wE, en: test, lk, ce, pp });
+            setText({ ED: "" });
+        }
     };
 
     const handleLangSubmit = (e) => {
-        const newCv = { id: nanoid(), data: LT };
-        const test = lk.concat(newCv);
-        setEditData({ experienceData: Data, basicData, skillsData });
-        setState({ wE, en, lk: test, ce, pp });
+        if (text.LT) {
+            const newCv = { id: nanoid(), data: LT };
+            const test = lk.concat(newCv);
+            setEditData({ experienceData: Data, basicData, skillsData });
+            setState({ wE, en, lk: test, ce, pp });
+            setText({ LT: "" });
+        }
     };
 
     const handleCertificateSubmit = (e) => {
-        const newCv = { id: nanoid(), data: CT };
-        const test = ce.concat(newCv);
-        setEditData({ experienceData: Data, basicData, skillsData });
-        setState({ wE, en, lk, ce: test, pp });
+        if (text.CT) {
+            const newCv = { id: nanoid(), data: CT };
+            const test = ce.concat(newCv);
+            setEditData({ experienceData: Data, basicData, skillsData });
+            setState({ wE, en, lk, ce: test, pp });
+            setText({ CT: "" });
+        }
     };
     return {
         handleWorkSubmit,
@@ -67,5 +79,6 @@ export default function ExperienceUpdate() {
         handleCertificateSubmit,
         handleChange,
         text,
+        state,
     };
 }
