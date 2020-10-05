@@ -12,7 +12,6 @@ export default ({ children }) => {
         experienceData: [],
         skillsData: [],
     });
-    console.log(data);
     const [detailData, setDetailData] = useState({
         DetailsData: [],
     });

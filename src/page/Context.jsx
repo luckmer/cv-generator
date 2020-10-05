@@ -1,5 +1,5 @@
 import React from "react";
-import BasicData from "../components/forms/BasicData";
+import { BasicData } from "../imports/Index";
 
 function Context() {
     return <BasicData />;

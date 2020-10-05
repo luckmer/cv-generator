@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { StoreContext } from "../store/index";
-import Experience from "../components/forms/Experience";
+import { Experience } from "../imports/Index";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 
@@ -15,6 +15,7 @@ function ExperienceContext() {
         DATAUPDATE: [editData],
         PROPSDATA: [prop],
     } = useContext(StoreContext);
+
     const { basicData, experienceData, skillsData } = editData;
     const { PropsData } = prop;
     const id = PropsData;
@@ -26,8 +27,7 @@ function ExperienceContext() {
 
     return (
         <Container>
-            <Experience />
-            <button onClick={handleSubmit}>Submit</button>
+            <Experience onClick={handleSubmit} />
         </Container>
     );
 }

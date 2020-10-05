@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { StoreContext } from "../store/index";
 import styled from "styled-components";
-import DetailFilter from "../hooks/DetailFilter";
+import { DetailFilter } from "../imports/Index";
+
 const Container = styled.section`
     padding: 10vh 0 0 0;
     width: 100%;

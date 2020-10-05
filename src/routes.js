@@ -12,6 +12,6 @@ export const routes = [
     { path: "/edit", Component: Context, name: "details" },
     { path: "/experience", Component: Experience, name: "experience" },
     { path: "/skills", Component: Skills, name: "skills" },
-    { path: "/download-cv", Component: Download, name: "download" },
+    { path: "/preview", Component: Download, name: "download" },
     { path: "*", Component: IncorrectPage, name: "404" },
 ];

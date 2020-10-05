@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { StoreContext } from "../store/index";
-import Skill from "../components/forms/Skills";
+import { Skill } from "../imports/Index";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 
@@ -26,8 +26,7 @@ export default function Skills() {
 
     return (
         <Container>
-            <Skill />
-            <button onClick={handleSubmit}>Submit</button>
+            <Skill onClick={handleSubmit} />
         </Container>
     );
 }
