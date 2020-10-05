@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { ContainerContext, FormContext, Form } from "../../css/FormDataStyles";
-import BasicDataUpdate from "../Update/BasicDataUpdate";
+import { BasicDataUpdate } from "../../imports/Index";
 
 function BasicData() {
     const history = useHistory();
@@ -124,12 +124,12 @@ function BasicData() {
                     <button
                         type="submit"
                         disabled={
-                            name == "" ||
-                            surname == "" ||
-                            dataOfBirth == "" ||
-                            country == "" ||
-                            livingPlace == "" ||
-                            phoneNumber == ""
+                            name === "" ||
+                            surname === "" ||
+                            dataOfBirth === "" ||
+                            country === "" ||
+                            livingPlace === "" ||
+                            phoneNumber === ""
                         }
                     >
                         Submit
