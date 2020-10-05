@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Hamburger, Header, Nav } from "../css/NavBarStyle";
 
 function NavBar() {
-    const [state, setState] = useState(true);
+    const [state, setState] = useState(false);
     return (
         <Nav>
             <Hamburger state={state} onClick={() => setState(!state)}>
@@ -23,8 +23,8 @@ function NavBar() {
                     </Link>
                 </ul>
                 <ul onClick={() => setState(!state)}>
-                    <Link to="/">
-                        <li>More</li>
+                    <Link to="/preview">
+                        <li>Preview</li>
                     </Link>
                 </ul>
             </Header>
