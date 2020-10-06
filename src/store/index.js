@@ -7,6 +7,7 @@ export default ({ children }) => {
         data: [],
     });
     const { data } = table;
+    console.log(data);
     const [editData, setEditData] = useState({
         basicData: [],
         experienceData: [],
@@ -21,6 +22,7 @@ export default ({ children }) => {
     const [prop, setProp] = useState({
         PropsData: [],
     });
+    const ID = prop.PropsData;
 
     const clearTableData = () => {
         const clearState = table.data;
@@ -65,6 +67,7 @@ export default ({ children }) => {
         DATAUPDATE: [editData, setEditData],
         PROPSDATA: [prop, setProp],
         editTask,
+        ID,
     };
 
     return (
