@@ -11,7 +11,7 @@ export const routes = [
     { path: "/details/:id", Component: Details, name: "details" },
     { path: "/edit", Component: Context, name: "details" },
     { path: "/experience", Component: Experience, name: "experience" },
-    { path: "/skills", Component: Skills, name: "skills" },
+    { path: "/skills", Component: Skills, name: "Skills" },
     { path: "/preview", Component: Download, name: "download" },
     { path: "*", Component: IncorrectPage, name: "404" },
 ];
