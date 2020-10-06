@@ -85,7 +85,11 @@ function Experience({ onClick }) {
             <FormContext>
                 <Form onSubmit={handleSubmit(handleLangSubmit)}>
                     <label>Languages</label>
-
+                    <div>
+                        <button onClick={() => setOpen({ th: !open.th })}>
+                            Submit Form
+                        </button>
+                    </div>
                     {open.th ? (
                         <div>
                             <input
