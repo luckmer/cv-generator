@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { StoreContext } from "../store/index";
-import { Skill, SkillsContext } from "../imports/Index";
+import { SkillsContext } from "../imports/Index";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 
@@ -21,7 +21,7 @@ export default function Skills() {
 
     const handleSubmit = () => {
         editTask(id, basicData, experienceData, skillsData);
-        history.push("/download-cv");
+        history.push("/preview");
     };
 
     return (
