@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import { StoreContext } from "../../store";
 import { nanoid } from "nanoid";
 
@@ -13,14 +14,12 @@ const initialState = {
 };
 
 export default function BasicDataUpdate() {
+    const history = useHistory();
     const [state, setState] = useState(initialState);
     const {
-        editTask,
         DATAUPDATE: [editData, setEditData],
-        PROPSDATA: [prop],
     } = useContext(StoreContext);
-    const { PropsData } = prop;
-    const id = PropsData;
+
     const { basicData, experienceData, skillsData } = editData;
 
     const handleDataChange = (e) => {
@@ -29,8 +28,8 @@ export default function BasicDataUpdate() {
 
     const handleDataSubmit = () => {
         const test = basicData.concat(state);
-        editTask(id, basicData, experienceData, skillsData);
         setEditData({ basicData: test, experienceData, skillsData });
+        history.push("/experience");
     };
 
     return { handleDataSubmit, handleDataChange, state, editData };
