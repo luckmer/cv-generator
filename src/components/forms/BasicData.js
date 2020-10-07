@@ -1,32 +1,12 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
 import { ContainerContext, FormContext, Form } from "../../css/FormDataStyles";
 import { BasicDataUpdate } from "../../imports/Index";
 
 function BasicData() {
-    const history = useHistory();
     const { register, handleSubmit, errors } = useForm();
-    const {
-        handleDataSubmit,
-        handleDataChange,
-        state,
-        editData,
-    } = BasicDataUpdate();
-    const {
-        name,
-        surname,
-        dataOfBirth,
-        country,
-        livingPlace,
-        phoneNumber,
-    } = state;
-    const { basicData } = editData;
-    console.log(basicData.length);
+    const { handleDataSubmit, handleDataChange, editData } = BasicDataUpdate();
 
-    if (basicData.length > 0) {
-        history.push("/experience");
-    }
     return (
         <ContainerContext>
             <FormContext>
@@ -108,7 +88,6 @@ function BasicData() {
                         <label>phone number*</label>
                         <input
                             ref={register({
-                                pattern: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/g,
                                 required: true,
                             })}
                             placeholder="phone number "
@@ -121,19 +100,7 @@ function BasicData() {
                             <span>This field is required</span>
                         )}
                     </div>
-                    <button
-                        type="submit"
-                        disabled={
-                            name === "" ||
-                            surname === "" ||
-                            dataOfBirth === "" ||
-                            country === "" ||
-                            livingPlace === "" ||
-                            phoneNumber === ""
-                        }
-                    >
-                        Submit
-                    </button>
+                    <button type="submit">Submit</button>
                 </Form>
             </FormContext>
         </ContainerContext>
