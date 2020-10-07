@@ -7,12 +7,13 @@ export default ({ children }) => {
         data: [],
     });
     const { data } = table;
-    console.log(data);
     const [editData, setEditData] = useState({
         basicData: [],
         experienceData: [],
         skillsData: [],
     });
+    console.log(editData);
+
     const [detailData, setDetailData] = useState({
         DetailsData: [],
     });
@@ -23,27 +24,24 @@ export default ({ children }) => {
         PropsData: [],
     });
     const ID = prop.PropsData;
-
     const clearTableData = () => {
         const clearState = table.data;
         clearState.splice(clearState, 1);
         setTable({ data: clearState });
     };
 
-    const editTask = (id, basicData, experienceData, skillsData) => {
+    const editTask = (id, experienceData, skillsData) => {
         const edited = data.map((task) => {
             if (id === task.id) {
                 return {
                     ...task,
                     title: task.title,
-                    BasicData: basicData,
                     experienceData: experienceData,
                     SkillData: skillsData,
                 };
             }
             return task;
         });
-
         setTable({ data: edited });
     };
 
