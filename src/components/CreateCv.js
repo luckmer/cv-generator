@@ -16,7 +16,6 @@ function CreateCv({ open, setOpen }) {
             const newCv = {
                 id: nanoid(),
                 title: create,
-                BasicData: [],
                 experienceData: [],
                 SkillData: [],
             };

@@ -11,6 +11,7 @@ export const DataContext = styled.div`
     box-shadow: rgba(0, 0, 0, 0.08) 0px 3px 6px;
 `;
 
+
 export const ExperienceContext = styled.div`
     display: flex;
     flex-wrap: wrap;
