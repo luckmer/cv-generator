@@ -12,16 +12,14 @@ function ExperienceContext() {
     const history = useHistory();
     const {
         editTask,
-        DATAUPDATE: [editData],
         PROPSDATA: [prop],
     } = useContext(StoreContext);
 
-    const { basicData, experienceData, skillsData } = editData;
     const { PropsData } = prop;
     const id = PropsData;
 
     const handleSubmit = () => {
-        editTask(id, basicData, experienceData, skillsData);
+        editTask(id)
         history.push("/skills");
     };
 
