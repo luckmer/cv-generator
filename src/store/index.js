@@ -7,13 +7,12 @@ export default ({ children }) => {
         data: [],
     });
     const { data } = table;
+    
     const [editData, setEditData] = useState({
         basicData: [],
         experienceData: [],
         skillsData: [],
     });
-    console.log(editData);
-
     const [detailData, setDetailData] = useState({
         DetailsData: [],
     });
@@ -24,18 +23,19 @@ export default ({ children }) => {
         PropsData: [],
     });
     const ID = prop.PropsData;
+
     const clearTableData = () => {
         const clearState = table.data;
         clearState.splice(clearState, 1);
         setTable({ data: clearState });
     };
 
-    const editTask = (id, experienceData, skillsData) => {
+    const editTask = (id) => {
+        const {experienceData , skillsData} = editData
         const edited = data.map((task) => {
             if (id === task.id) {
                 return {
                     ...task,
-                    title: task.title,
                     experienceData: experienceData,
                     SkillData: skillsData,
                 };
@@ -44,6 +44,7 @@ export default ({ children }) => {
         });
         setTable({ data: edited });
     };
+
 
     useEffect(() => {
         const store = JSON.parse(localStorage.getItem("TableData"));
