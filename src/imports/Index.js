@@ -18,8 +18,8 @@ export { default as BasicDataUpdate } from "../components/Update/BasicDataUpdate
 export { default as ExperienceUpdate } from "../components/Update/ExperienceUpdate";
 export { default as SkillsUpdate } from "../components/Update/SkillsUpdate";
 //components ->forms -> context
-export { default as BasicData } from "../components/forms/BasicData";
-export { default as Experience } from "../components/forms/Experience";
-export { default as SkillsContext } from "../components/forms/Skills";
+export { default as BasicData } from "../components/forms/BasicData/BasicData";
+export { default as Experience } from "../components/forms/ExperienceData/Experience";
+export { default as SkillsContext } from "../components/forms/SkillData/Skills";
 // components -> filter
 export { default as Filter } from "../components/Filter/Filter";
