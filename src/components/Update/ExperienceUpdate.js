@@ -1,3 +1,5 @@
+
+
 import { useState, useContext } from "react";
 import { StoreContext } from "../../store";
 
@@ -13,72 +15,72 @@ const initialState = {
 
 export default function ExperienceUpdate() {
     const [state, setState] = useState(initialState);
-    const [text, setText] = useState({
-        WT: "",
-        ED: "",
-        LT: "",
-        CT: "",
-        wE: "",
-    });
+    const { DATAUPDATE: [editData, setEditData] ,} = useContext(StoreContext);
+    const [text,setText] =useState({
+        wE:"", ED:"",LT:"" , CT:"" , pp:"",
+        company:"",location:"",startDate:"",endDate:"",
+        school:"",Specialisation:"",eduStart:"",eduEnd:"",
+        level:"",certStart:"",promoter:""
+    })
+
+    const handleChange=(e)=>setText({...text, [e.target.name] :e.target.value})
+    const { basicData, skillsData } = editData;
 
     const {
-        DATAUPDATE: [editData, setEditData],
-    } = useContext(StoreContext);
-
-    const handleChange = (e) => {
-        setText({ ...text, [e.target.name]: e.target.value });
-    };
-    const { basicData, skillsData } = editData;
-    const { LT, WT, ED, CT } = text;
+        ED , LT , CT ,company, location, startDate , endDate,
+        school, Specialisation,eduStart ,eduEnd,level,certStart,
+        promoter,
+    }= text
     const { wE, en, lk, ce, pp } = state;
-    const Data = basicData.concat(state);
-
-    const handleWorkSubmit = (e) => {
+    
+    const Data = basicData.concat(state)
+    ;
+    const handleWorkSubmit = () => {
         if (text.wE) {
-            const newCv = { id: nanoid(), data: WT };
+            const newCv = { id: nanoid(),  data: text.wE, company ,location, startDate,endDate };
             const test = wE.concat(newCv);
-            setEditData({ experienceData: Data, basicData, skillsData });
+            setEditData({basicData, experienceData: Data,  skillsData });
             setState({ wE: test, en, lk, ce, pp });
-            setText({ wE: "" });
+            setText({ wE: "",company:"",location:"",startDate:"",endDate:"", });
         }
     };
 
-    const handleEduSubmit = (e) => {
+    const handleEduSubmit = () => {
         if (text.ED) {
-            const newCv = { id: nanoid(), data: ED };
+            const newCv = { id: nanoid(), data: ED, skillsData,school,Specialisation,eduStart ,eduEnd };
             const test = en.concat(newCv);
-            setEditData({ experienceData: Data, basicData, skillsData });
+            setEditData({basicData, experienceData: Data });
             setState({ wE, en: test, lk, ce, pp });
-            setText({ ED: "" });
+            setText({ ED: "",skillsData :"" , school :"", Specialisation:"" , eduStart:"" , eduEnd:""  });
         }
     };
 
-    const handleLangSubmit = (e) => {
+    const handleLangSubmit = () => {
         if (text.LT) {
-            const newCv = { id: nanoid(), data: LT };
+            const newCv = { id: nanoid(), data: LT,level };
             const test = lk.concat(newCv);
-            setEditData({ experienceData: Data, basicData, skillsData });
+            setEditData({ basicData, experienceData: Data,  skillsData });
             setState({ wE, en, lk: test, ce, pp });
-            setText({ LT: "" });
+            setText({ LT: "",level:"" });
         }
     };
 
-    const handleCertificateSubmit = (e) => {
+    const handleCertificateSubmit = () => {
         if (text.CT) {
-            const newCv = { id: nanoid(), data: CT };
+            const newCv = { id: nanoid(), data: CT,certStart,promoter };
             const test = ce.concat(newCv);
-            setEditData({ experienceData: Data, basicData, skillsData });
+            setEditData({ basicData,experienceData: Data,  skillsData });
             setState({ wE, en, lk, ce: test, pp });
-            setText({ CT: "" });
+            setText({ CT: "",certStart:"" ,promoter:"" });
         }
     };
     return {
+        text,
+        handleChange,
+        handleLangSubmit,
         handleWorkSubmit,
         handleEduSubmit,
-        handleLangSubmit,
         handleCertificateSubmit,
-        handleChange,
-        text,
         state,
     };
 }
