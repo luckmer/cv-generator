@@ -51,12 +51,15 @@ export default ({ children }) => {
         if (store) setTable(store);
         const data = JSON.parse(localStorage.getItem("propData"));
         if (data) setProp(data);
+        const editData = JSON.parse(localStorage.getItem("ediData"));
+        if (editData) setEditData(editData);
     }, []);
 
     useEffect(() => {
         localStorage.setItem("TableData", JSON.stringify(table));
         localStorage.setItem("propData", JSON.stringify(prop));
-    }, [table, prop]);
+        localStorage.setItem("ediData", JSON.stringify(editData))
+    }, [table, prop,editData]);
 
     const store = {
         clearTableData,
