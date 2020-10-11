@@ -12,12 +12,6 @@ function Skills({ onClick }) {
         activitySubmit,
         linksSubmit,
         text,
-        activeState,
-        handleActiveChange,
-        linkState,
-        handleLinkChange,
-        personData,
-        handlePersonChange,
     } = SkillsUpdate();
 
     return (
@@ -52,9 +46,13 @@ function Skills({ onClick }) {
                                 ref={register({ pattern: /\w/i })}
                                 placeholder=" Activity"
                                 name="ay"
-                                value={activeState.ay}
-                                onChange={handleActiveChange}
+                                value={text.ay}
+                                onChange={handleChange}
                             />
+                            <input name ="name" placeholder="name" value ={text.text} onChange={handleChange} />
+                            <input name ="location" placeholder="location" value ={text.location} onChange={handleChange} />
+                            <input name = "startDate" type ="date" value ={text.startDate} onChange={handleChange} />
+                            <input name ="endDate" type ="date" value ={text.endDate}  onChange={handleChange}/>
                             <button type="submit">Submit</button>
                         </div>
                     ) : (
@@ -79,9 +77,10 @@ function Skills({ onClick }) {
                                 })}
                                 placeholder=" Links"
                                 name="ls"
-                                value={linkState.ls}
-                                onChange={handleLinkChange}
+                                value={text.ls}
+                                onChange={handleChange}
                             />
+                            <input name ="description" placeholder="description " value ={text.description} onChange={handleChange}  />
                             <small>example www.name.com</small>
                             <br />
                             <button type="submit">Submit</button>
@@ -102,8 +101,8 @@ function Skills({ onClick }) {
                             })}
                             placeholder="personal Data"
                             name="pd"
-                            value={personData.pd}
-                            onChange={handlePersonChange}
+                            value={text.pd}
+                            onChange={handleChange}
                         />
                     </div>
                 </Form>
