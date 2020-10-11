@@ -16,8 +16,6 @@ function LandingPage() {
     } = useContext(StoreContext);
     const { data } = table;
 
-
-
     return (
         <Container controlOpen={controlOpen}>
             <CreateCV open={open} setOpen={setOpen} />
