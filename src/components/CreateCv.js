@@ -29,13 +29,13 @@ function CreateCv({ open, setOpen }) {
         <Container>
             <Black />
             <Form onSubmit={handleSubmit}>
+                <div>
                 <input
                     placeholder="create new cv "
                     type="text "
                     value={create}
                     onChange={(e) => setCreate(e.target.value)}
                 />
-                <div>
                     <button type="submit">Submit</button>
                     <button onClick={() => setOpen(!open)}>Close</button>
                 </div>
