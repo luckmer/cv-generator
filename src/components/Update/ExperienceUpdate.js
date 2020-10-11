@@ -33,8 +33,7 @@ export default function ExperienceUpdate() {
     }= text
     const { wE, en, lk, ce, pp } = state;
     
-    const Data = basicData.concat(state)
-    ;
+    const Data = basicData.concat(state);
     const handleWorkSubmit = () => {
         if (text.wE) {
             const newCv = { id: nanoid(),  data: text.wE, company ,location, startDate,endDate };

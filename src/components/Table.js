@@ -30,7 +30,7 @@ function Table(props) {
                         <th>
                             Options :
                             <button onClick={handleClick}>
-                                <p>Edit</p>
+                                Edit
                             </button>
                             <button onClick={props.clearTableData}>
                                 Delete

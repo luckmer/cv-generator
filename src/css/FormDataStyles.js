@@ -1,16 +1,15 @@
 import styled from "styled-components";
-
+import colors from "./colors"
 export const DataContext = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: rgb(229, 230, 230);
-    color: rgb(44, 49, 58);
+    background-color: ${colors.lightWhite};
+    color: ${colors.lightDarkBlue};
     margin: 5px 40px 5px 40px;
     padding: 10px 0 10px 0;
     box-shadow: rgba(0, 0, 0, 0.08) 0px 3px 6px;
 `;
-
 
 export const ExperienceContext = styled.div`
     display: flex;
@@ -29,7 +28,7 @@ export const ContainerContext = styled.div`
     justify-content: center;
     margin: 0px auto;
     width: 800px;
-    color: black;
+    color: ${colors.black};
 `;
 
 export const FormContext = styled.div`
@@ -38,14 +37,14 @@ export const FormContext = styled.div`
     button {
         border: none;
         cursor: pointer;
-        background-color: #e8474c;
-        color: white;
+        background-color: ${colors.lightTomato};
+        color: ${colors.white};
         font-weight: bold;
         padding: 0.75em 1em;
         &:disabled {
-            border: 1px solid #999999;
-            background-color: #cccccc;
-            color: #666666;
+            border: 1px solid ${colors.smallGrey};
+            background-color: ${colors.lessWhite};
+            color: ${colors.lightGrey};
         }
     }
 `;
@@ -59,8 +58,8 @@ export const Form = styled.form`
         border-radius: 7px;
         padding: 1em;
         border: none;
-        background: rgb(229, 230, 230);
-        color: rgb(44, 49, 58);
+        background: ${colors.lightWhite};
+        color: ${colors.lightDarkBlue};
     }
 
     label {

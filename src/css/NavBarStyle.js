@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import colors from "./colors"
 export const Nav = styled.div`
     position: fixed;
     width: 100%;
@@ -7,9 +7,10 @@ export const Nav = styled.div`
     padding: 1vh 5vw 1vh 5vw;
     top: 0;
     left: 0;
-    background-color: #ffffff;
+    background-color: ${colors.white};
     border-bottom: 1px solid #d8d8d8;
     @media screen and (max-width: 850px) {
+        border-bottom:none;
         background-color: none;
         box-shadow: none;
     }
@@ -30,7 +31,7 @@ export const Header = styled.div`
     }
     a {
         text-decoration: none;
-        color: black;
+        color: ${colors.black};
     }
 
     @media screen and (max-width: 850px) {
@@ -38,8 +39,8 @@ export const Header = styled.div`
         align-items: center;
         flex-flow: column nowrap;
         position: fixed;
-        color: black;
-        background-color: #f0f0f0;
+        color: ${colors.black};
+        background-color: ${colors.lighterWhite};
         transform: ${({ state }) =>
             state ? "translateY(0)" : "translateY(-100%)"};
         top: 0;
@@ -69,6 +70,16 @@ export const Hamburger = styled.div`
             transform-origin: 1px;
             transition: all 1s ease;
             background-color: ${({ state }) => (state ? "black" : " blue")};
+            
+            &:nth-child(1){
+                transform: rotate(${({ state }) => (state ? "25deg" : " 0deg")});
+            }
+            
+            &:nth-child(2){
+                transform: rotate(${({ state }) => (state ? "-25deg" : " 0deg")});
+            }
         }
     }
 `;
+
+//rotate(25deg);
