@@ -24,7 +24,7 @@ export default function ExperienceUpdate() {
     })
 
     const handleChange=(e)=>setText({...text, [e.target.name] :e.target.value})
-    const { basicData, skillsData } = editData;
+    const { basicData,experienceData, skillsData } = editData;
 
     const {
         ED , LT , CT ,company, location, startDate , endDate,
@@ -33,7 +33,7 @@ export default function ExperienceUpdate() {
     }= text
     const { wE, en, lk, ce, pp } = state;
     
-    const Data = basicData.concat(state);
+    const Data = experienceData.concat(state);
     const handleWorkSubmit = () => {
         if (text.wE) {
             const newCv = { id: nanoid(),  data: text.wE, company ,location, startDate,endDate };
@@ -43,12 +43,11 @@ export default function ExperienceUpdate() {
             setText({ wE: "",company:"",location:"",startDate:"",endDate:"", });
         }
     };
-
     const handleEduSubmit = () => {
         if (text.ED) {
             const newCv = { id: nanoid(), data: ED, skillsData,school,Specialisation,eduStart ,eduEnd };
             const test = en.concat(newCv);
-            setEditData({basicData, experienceData: Data });
+            setEditData({basicData, experienceData: Data,skillsData });
             setState({ wE, en: test, lk, ce, pp });
             setText({ ED: "",skillsData :"" , school :"", Specialisation:"" , eduStart:"" , eduEnd:""  });
         }
