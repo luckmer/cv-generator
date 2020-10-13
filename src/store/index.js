@@ -23,15 +23,14 @@ export default ({ children }) => {
         PropsData: [],
     });
     const ID = prop.PropsData;
-
     const clearTableData = () => {
         const clearState = table.data;
         clearState.splice(clearState, 1);
         setTable({ data: clearState });
     };
-
     const editTask = (id) => {
         const {experienceData , skillsData} = editData
+        
         const edited = data.map((task) => {
             if (id === task.id) {
                 return {
