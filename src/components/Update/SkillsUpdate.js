@@ -17,9 +17,9 @@ export default function SkillsUpdate() {
         DATAUPDATE: [editData, setEditData],
     } = useContext(StoreContext);
 
-    const { basicData, experienceData } = editData;
+    const { basicData,skillsData, experienceData } = editData;
     const { abilities, Activity, links, personalData } = state;
-    const Data = basicData.concat(state);
+    const Data = skillsData.concat(state);
 
 
     //test
@@ -39,7 +39,6 @@ export default function SkillsUpdate() {
         localStorage.setItem("stateData", JSON.stringify(state));
     }, [state]);
 
-    console.log(text)
     const abilitiesSubmit = () => {
         if (text.as) {
             const newData = { id: nanoid(), data: as };
