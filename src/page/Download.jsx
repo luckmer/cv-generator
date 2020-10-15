@@ -1,5 +1,5 @@
 import React from "react";
-import { Page, Text, View, Document, PDFViewer } from '@react-pdf/renderer';
+import { Page, Text, Document, PDFViewer } from '@react-pdf/renderer';
 import {Container} from "../css/Downloadcss"
 
 function Download() {
@@ -8,12 +8,7 @@ function Download() {
             <PDFViewer>
                 <Document>
                     <Page>
-                    <View >
-                        <Text>Section #1</Text>
-                    </View>
-                    <View >
-                        <Text>Section #2</Text>
-                    </View>
+                        <Text>das</Text>
                     </Page>
                 </Document>
             </PDFViewer>
